@@ -4,6 +4,6 @@
 **Stack is still growing. Let it grows to leak more knowledge**
 
 ##These topics have been leaked so far:
-| Memory Address |                        Topic                 |
-|----------------|----------------------------------------------|
-|   0xFFFE4000   |Robust AI-Generated Image Detection Algorithm |
+| Memory Address | Topic |
+| :--- | :--- |
+| `0xFFFE4000` | [Robust AI-Generated Image Detection Algorithm] (./imageDetection.md) |

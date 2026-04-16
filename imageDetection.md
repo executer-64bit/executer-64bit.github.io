@@ -63,7 +63,7 @@ The main algorithm is [here](https://github.com/executer-64bit/Robust-Generated-
 
 Final results from NTIRE competition validation phase:
 Clean ROC AUC (AI-generated original images) - 0.9564| Robust ROC AUC (Tranformations in the images) - 0.8454
-Clean Hard ROC AUC (Unseen AI-generated original images) - 0.8747 | Robust Hard ROC AUC (Heavy in the images) - 0.7066
+Clean Hard ROC AUC (Unseen AI-generated original images) - 0.8747 | Robust Hard ROC AUC (Heavy transformations in the images) - 0.7066
 
 
 

@@ -8,3 +8,4 @@
 | Memory Address | Topic |
 | :--- | :--- |
 | `0xFFFE4000` | [Robust AI-Generated Image Detection Algorithm](./imageDetection.md) |
+| `0xFFFE5000` | [Timing & Power Side Channel Analsys](./timePowerSCA.md) |

@@ -8,15 +8,17 @@ It is sometimes easy to detect a fake image because its modifications are percep
 
 One competition that is about distinguish real and fake images is the [NTIRE 2026](https://www.codabench.org/competitions/12761/). In short words, our algorithm has to be robust enough to detect real and AI-generated images, but these fake images are transformed after being created (in-the-wild) to add more difficulty to the challenge.
 
-To assess the accuracy of the algorithms ROC(Receiver Operating Characteristic)-AUC(Area Under the Curve) was utilized. The graphical plot is composed of false positive rate and true positivy rate in x and y-axis repectively. An algorithm performs better when there is a significative higher true positive rate than false positive rate. Meaning that the curve should try to reach to the top of the vertical axis as soon as possible. It also can be seen as the higher is the AUC of that curve, the better is performing. The next graphical plot shows two scenarios when an algorithm its performance is outstanding and when it is not better than random guessing.
+To assess the accuracy of the algorithms ROC(Receiver Operating Characteristic)-AUC(Area Under the Curve) was utilized. The graphical plot is composed of false positive rate and true positivy rate in x and y-axis repectively. An algorithm performs better when there is a significative higher true positive rate than false positive rate. Meaning that the curve should try to reach to the top of the vertical axis as soon as possible. It also can be seen as the higher is the AUC of that curve, the better is performing. The next graphical plot shows two scenarios when an algorithm its performance is outstanding (purple plot) and when it is not better than random guessing (blue plot).
+
 ![ROC AUC good performace](./images/ROC_AUC_goodPredictor.png)
+
 ![ROC AUC random guess](./images/ROC_AUC_Guess.png)
 
 __Proposed solution__
 
 This type of challenge requires a powerful algorithm like a deep neural netwotk because it will be capable of finding statistical anomalies after a heavy training process. The general process of our proposed algorithm is illustrated in the next image.
-![Block diagram of the robust AI generated-image detector](./images/architectureAI_detector.png)
 
+![Block diagram of the robust AI generated-image detector](./images/architectureAI_detector.png)
 
 
 Stage 1 - Data handling & format.

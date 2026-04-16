@@ -57,7 +57,7 @@ It is time to validate the model with our split labeled data, so we can know if 
 
 Once the algorithm was trained, it can be tested either with my split testing set 10% from the original training shard to know the results (non-blind way as it has labels), or use NTIRE or ImSec valset to generated the CSV and submit it into the platform (blind way as there is no lables) to know my results. There is no much to say about this stage.
 
-### Outcomes
+### Outcomes.
 
 The main algorithm is [here](https://github.com/executer-64bit/Robust-Generated-IA-Image-Detector-EfficientNet-B0-for-NTIRE-2026/tree/main)
 

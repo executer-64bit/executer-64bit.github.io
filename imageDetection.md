@@ -21,13 +21,13 @@ This type of challenge requires a powerful algorithm like a deep neural netwotk 
 ![Block diagram of the robust AI generated-image detector](./images/architectureAI_detector.png)
 
 
-Stage 1 - Data handling & format.
+#Stage 1 - Data handling & format.
 
 We were given two types of shards: training and validation (NTIRE valset). However, only the former one had included the labels (answer whether that image was real or fake). The latter was only used to generate a .csv with the guesses of our algorithm which will be assessed in the server. So no labels. That is why the training shard was split in training (80%), validation (10%), and training (10%) sets so we can also evaluate internally our algorithm and not be completely blind. The ImSec valset was the dataset from the course, it was utlized more for a getting started before going to NTIRE one. 
 
 Then all the sets are transformed in the required format for the implemented Deep Learning algorithm, in this case EfficientNetB0 was selected (next stage explains more about it). Then the format should be images of size 224x224 pixels, then converting into tensors and normalizing them. After they were group in batches of 32 nomalized tensors per batch, this is to avoid consuming all the CPU resources when training.
 
-Stage 2 - Training process.
+#Stage 2 - Training process.
 
 Before explaining my architecture, EfficientNet B0 should be explained, so reader can understand how it works.
 
@@ -48,14 +48,22 @@ The reasons EfficientNet B0 was chosen were that it is quite efficient compared 
 Returning back to my architecture, both stages 2 & 3 are in the epoch loop. The training data are loaded in batches. Then in case an updated version model of our algorithm was saved, it can be loaded. The reason behind is because it trains with many Giga Bytes of dataset for each sharp, so to avoid losing our progress, the algorithm is saved after each epoch. It is also useful to select previous versions when symptoms of overfitting start to appear. After, the EfficientNet B0 model selected and it enters in the training loop where it predicts, Cross Entropy Loss calculates the error's penalty of the prediction, and then its weights & biases are rectified with Adaptive Moment Estimation (Adam) so next prediction can be more accurate. The learning rate is 0.0001; not too high to avoid bouncing when converging.
 
 
-Stage 3 - Validation phase.
+##Stage 3 - Validation phase.
 
 It is time to validate the model with our split labeled data, so we can know if it is performing better or there is no improvements. The correct predictions and the penalty values from the errors are accumulated to calculate the accuracy and the average loss value. If that loss value is lower then the lowest loss value recorded so far, then it will saved as bestModel.pth, otherwise it will saved but as currentModel.pth and not lowest loss value will be updated.
 
 
-Stage 4 - Testing process. 
+###Stage 4 - Testing process. 
 
 Once the algorithm was trained, it can be tested either with my split testing set 10% from the original training shard to know the results (non-blind way as it has labels), or use NTIRE or ImSec valset to generated the CSV and submit it into the platform (blind way as there is no lables) to know my results. There is no much to say about this stage.
+
+
+The main algorithm is [here](https://github.com/executer-64bit/Robust-Generated-IA-Image-Detector-EfficientNet-B0-for-NTIRE-2026/tree/main)
+
+Final results from NTIRE competition validation phase:
+Clean ROC AUC (AI-generated original images) - 0.9564| Robust ROC AUC (Tranformations in the images) - 0.8454
+Clean Hard ROC AUC (Unseen AI-generated original images) - 0.8747 | Robust Hard ROC AUC (Heavy in the images) - 0.7066
+
 
 
 Tentative improvements.

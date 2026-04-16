@@ -13,7 +13,7 @@ To assess the accuracy of the algorithms ROC(Receiver Operating Characteristic)-
 __Proposed solution__
 
 This type of challenge requires a powerful algorithm like a deep neural netwotk because it will be capable of finding statistical anomalies after a heavy training process. The general process of our proposed algorithm is illustrated in the next image.
-[Block diagram of the robust AI generated-image detector](./architectureAI_detector.png)
+![Block diagram of the robust AI generated-image detector](./images/architectureAI_detector.png)
 
 
 

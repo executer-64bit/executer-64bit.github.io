@@ -1,6 +1,6 @@
 # Robust AI-Generated Image Detection algorithm for NTIRE 2026.
 
-_As part of the course's project of Image Security Spring 2026 at EURECOM by professor Jean-Luc Dugelay_
+_As part of the course's project of Image Security Spring 2026 at EURECOM by [professor Jean-Luc Dugelay](https://dugelay.eurecom.io/)_
 
 A modified image can be a very useful tool to deceive massive people with fake evidence & news to gain money and damage reputation. Once a friend of mine was selling his XBOX one and posting about it in his social media. One guy that was interested got in touch through messages with my friend, after my friend asked for a ticket deposit to then send his XBOX via delivery. The guy sent a modified picture of the ticket, my friend relied on him and sent the console. He was scammed. I know very risky way to sell a product, but this story was written to let you know that this can happen.
 
@@ -37,13 +37,11 @@ EfficientNet B0 is a Convolutional Neural Network (CNN) that adjusts the number 
 
 ![Math EfficientNet](./images/mathEfficientNet.png)
 
-The researchers found the best values for alpha, beta, and gamma are ... respectively.
+The researchers found the best values for alpha, beta, and gamma are 1.2, 1.1, & 1.15 respectively.
 By multiplying all the three parameters should be approximately equal to two, this forces to increase the required resources by 2 whenever phi is increased by one.
-Phi defines the architecture: how many channels, layers, and image resolution is supported. The higher phi is, the better the algorithm will be, but as tradeoff more resources are required. phi also determines the version of EfficientNet, for B0 the phi is 0, for B1 its phi is 1, and so on til B7. Therefore, in this case it means that:
+Phi defines the architecture: how many channels, layers, and image resolution is supported. The higher phi is, the better the algorithm will be, but as tradeoff more resources are required. phi also determines the version of EfficientNet, for B0 the phi is 0, for B1 its phi is 1, and so on til B7. Therefore, in this case it means that everything is 1's.
 
-    Everything are 1's.
-
-What really means phi = 0? It is the baseline version, before any scaling is applied. Based on the original paper in table 1, the architecture of EfficientNet B0 is made of up to 1280 channels, 18 Convolution (filters everything simultaneously) and Mobile inverted Bottleneck Convolution (MBConv; it separates convolutions) layers, and starts with an image of resolution of 224x224. For better versions (B1,B2,etc), the every parameter is increased.
+What really means phi = 0? It is the baseline version, before any scaling is applied. Based on the [original paper](https://arxiv.org/pdf/1905.11946) in table 1, the architecture of EfficientNet B0 is made of up to 1280 channels, 18 Convolution (filters everything simultaneously) and Mobile inverted Bottleneck Convolution (MBConv; it separates convolutions) layers, and starts with an image of resolution of 224x224. For better versions (B1,B2,etc), the every parameter is increased.
  
 The reasons EfficientNet B0 was chosen were that it is quite efficient compared against others from the original paper in figure 5 there is a comparison, as summary it needs fewer FLOPS to do even more that many other algorithms. Another motivation was that we can improve it by just changing phi, but the architecture family is the same.
 

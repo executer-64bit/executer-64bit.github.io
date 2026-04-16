@@ -35,9 +35,7 @@ EfficientNet B0 was our model's backbone for learning. In fact, a pre-trained mo
 
 EfficientNet B0 is a Convolutional Neural Network (CNN) that adjusts the number of channels, layers, and resolution. Actually, it has to follow the next equations:
 
-$$\text{layers} = \alpha^\phi$$
-$$\text{channels} = \beta^\phi$$
-$$\text{resolution} = \gamma^\phi$$
+![Math EfficientNet](./images/mathEfficientNet.png)
 
 The researchers found the best values for alpha, beta, and gamma are ... respectively.
 By multiplying all the three parameters should be approximately equal to two, this forces to increase the required resources by 2 whenever phi is increased by one.

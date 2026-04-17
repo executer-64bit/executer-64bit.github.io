@@ -14,12 +14,12 @@ Inside DES, we can see as three subsystems. The first one is illustrated in the 
 * The next value of L (L1) will be directly the value of R0.
 * In order to calculate R1, Feistel function is applied to R0 and k0 (later will be explained this function in detail). And then, the result will be XORed with L0.
 
-This 
-
+These steps are repeated (except the Initial permutation) in each round, in total they are 16 rounds. In the last round (after performing the last feistel function and XOR, but before the inverse initial permutation), the L16 is now the right side of the pre-output ciphertext, and R16 is the left one. After, the inverse initial permutation is invoked and the ciphertext is the complete.
 
 
 ![SBoxes in Feistel function](./images/feistelFunction.png)
 
+The third subsystem is the Feistel function and it is illustrated in the image above. The value of Rx from 32 bit is expanded to 48 bit (by duplicating some bits), then the subkey of that round (also 48 bits) is XORed with the expansion of Rx. The result from the XOR is separated by 6 bits per SBOX and the output will be of 4-bit size, so 32 bits when concatenated. The SBOX tables are fixed and only replaces the input value, this table is in page 12 of the DES FIPS paper.
 
 ## Explication of professor's API for carrying out these analysis.
 

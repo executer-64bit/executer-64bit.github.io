@@ -35,5 +35,12 @@ More provided resources: the messages with their respective ciphertext and trace
 ## Side Channel Analysis with Timing against DES.
 The permutation function is vulnerable to timing attacks, it was created on purpose as part of the laboratory. Some condition statements were added, and this makes the timing trace changes based on permutation function's input.
 
+In order to carry out the key extraction, we can analyze all the available data. So, we have the plaintext (not needed for now), ciphertext and time trace, the DES architecture with their fixed tables are public information. Based on this specific DES architecture nature, it is allowed to reconstruct the values from the previous round, consider the next image.
+
+![DES reverse analysis](./images/reverseDES.png)
+
+
+
+
 ## Side Channel Analysis with Power against DES.
 

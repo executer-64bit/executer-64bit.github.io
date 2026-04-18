@@ -95,7 +95,7 @@ Now the guess for subkey is reduced to 2^6 = 64 which totally feasible. This is 
 print the best correlation for each SBOX
 ```
 
-The highest time difference between fast and slow averages is most likely the right guess part of the subkey, this demonstrates the high correlation. The [code](https://github.com/executer-64bit/Side-Channel-Analysis-Time-Power-Against-DES) I created to leak the subkey. My code requires 1845 samples to leak the whole subkey of the last round.
+The highest time difference between fast and slow averages is most likely the right guess part of the subkey, this demonstrates the high correlation. The [code](https://github.com/executer-64bit/Side-Channel-Analysis-Time-Power-Against-DES) I created to leak the subkey. My code requires 1846 samples to leak the whole subkey of the last round, you can see it in the link of my code.
 
 ## Side Channel Analysis with Power against DES.
 

@@ -33,7 +33,7 @@ The professor provided us his APIs:
 More provided resources: the messages with their respective ciphertext and trace (either time or power).
 
 ## Side Channel Analysis with Timing against DES.
-The permutation function is vulnerable to timing attacks, it was created on purpose as part of the laboratory. Some condition statements were added, and this makes the timing trace changes based on permutation function's input. By the way, the permutation block will receive the output of the SBOXes concatenated. By looking at the implementetion of this permutation function (next code), it is noticeable that there is if condition when the value is one, it processes more code. Meaning that it will take more time than if it were a zero. Then, the more ones it contains, the more time it must take. In addition, this vulnerability implemented near where subkey is computed, makes time to be correlated with ones and zeroes of the subkey and the expanded Rx. Therfore, the subkey can be leaked.
+The permutation function is vulnerable to timing attacks, it was created on purpose as part of the laboratory. Some condition statements were added, and this makes the timing trace changes based on permutation function's input. By the way, the permutation block will receive the output of the SBOXes concatenated. By looking at the implementetion of this permutation function (next code), it is noticeable that there is if condition when the value is one, it processes more code. Meaning that it will take more time than if it were a zero. Then, the more ones it contains, the more time it must take. In addition, this vulnerability implemented near where subkey is computed, makes time to be correlated with ones and zeroes of the subkey and the expanded Rx. Therefore, the subkey can be leaked.
 ```c
 // Permutation table. Input bit #16 is output bit #1 and
 // input bit #25 is output  bit #32.
@@ -66,8 +66,11 @@ In order to carry out the key extraction, we can analyze all the available data.
 
 ![DES reverse analysis](./images/reverseDES.png)
 
-The analysis is backwards as the ciphertext (blue) is known, the final permutation is public, so this operation is applied and the result (in 64 bits) will be divided in two and assign to R16 and L16 (pink). By DES architecture, it is known that L16 is R15, and R15 is one input of the Feistel function. The another input is our target subkey of the last round (red). It is time to check inside Feistel function, Rx is expanded to 48 bits (expansion logic is also public), whose result is XORed with the last round subkey. Did you notice? Everything is known by us except the subkey. We can start to 
+The analysis is backwards as the ciphertext (blue) is known, the final permutation is public, so this operation is applied and the result (in 64 bits) will be divided in two and assign to R16 and L16 (pink). By DES architecture, it is known that L16 is R15, and R15 is one input of the Feistel function. The another input is our target subkey of the last round (red). It is time to check inside Feistel function, Rx is expanded to 48 bits (expansion logic is also public), whose result is XORed with the last round subkey. Did you notice? Everything is known by us except the subkey. We could start to guess the value of the subkey and classify our timing traces as fast or slow to get a correlation, but it might not be feasible since we must guess in the worst case scenario 2^48 different keys. The DES architecture nature can reduce this number if we take into consideration the analysis per SBOX.
 
+![analysis per SBOX to guess subkey](./images/guessSBOX.png)
+
+Now the guess for subkey is reduced to 2^6 = 64 which totally feasible. This is done per SBOX (in total 8), so parts of the subkey will be retreived. The SBOX result is 4 bits and the input of the vulnerable permutation. After, we should calculate the number of ones with hamming weight and start classifying like the next pseudocode.
 
 ## Side Channel Analysis with Power against DES.
 

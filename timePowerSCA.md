@@ -81,9 +81,9 @@ Now the guess for subkey is reduced to 2^6 = 64 which totally feasible. This is 
 |  |  |  XOR the 6 bits of Rx with the guessed key
 |  |  |  Compute the specific SBOX to the XOR result
 |  |  |  Apply hammingWeight to the SBOX output
-|  |  |  if result hammingWeight = 0x0 OR 0x1 OR 0x2 OR 0x4 OR 0x8 //Means fast
+|  |  |  if result hammingWeight <= 0x1 //Means values that at most contains one one like 0x0, 0x1, 0x2, 0x4, 0x8 for fast time
 |  |  |    Store the repective timing trace in fast array
-|  |  |  else if result hammingWeigth = 0x3 OR 0x7 OR 0xB OR 0xD OR 0xE OR 0xF //Means slow
+|  |  |  else if result hammingWeigth >= 0x3 //Means values that contains three or four ones like 0x7, 0xB, 0xD, etc for slow time
 |  |  |    Store the repective timing trace in slow array
 |  |  |end of sample loop
 |  |  Calculate average of fast traces
@@ -95,6 +95,7 @@ Now the guess for subkey is reduced to 2^6 = 64 which totally feasible. This is 
 print the best correlation for each SBOX
 ```
 
+The highest time difference between fast and slow averages is most likely the right guess part of the subkey, this demonstrates the high correlation. The [code](https://github.com/executer-64bit/Side-Channel-Analysis-Time-Power-Against-DES) I created to leak the subkey. My code requires 1845 samples to leak the whole subkey of the last round.
 
 ## Side Channel Analysis with Power against DES.
 

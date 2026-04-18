@@ -73,25 +73,25 @@ The analysis is backwards as the ciphertext (blue) is known, the final permutati
 Now the guess for subkey is reduced to 2^6 = 64 which totally feasible. This is done per SBOX (in total 8), so parts of the subkey will be retreived. The SBOX result is 4 bits and the input of the vulnerable permutation. After, we should calculate the number of ones with hamming weight and start classifying like the next pseudocode.
 
 ```c
-for each SBOX in 8 SBOXes
- for each guess of the subkey in 64 guesses
-  for each ciphertext with its respective time trace in upto 100,000 samples
-   Compute to obtain Rx
-   Apply masks & shifts to obtain the 6 bits of the targeted SBOX
-   XOR the 6 bits of Rx with the guessed key
-   Compute the specific SBOX to the XOR result
-   Apply hammingWeight to the SBOX output
-   If result hammingWeight = 0x0 OR 0x1 OR 0x2 OR 0x4 OR 0x8 //Means fast
-    Store the repective timing trace in fast array
-   else if result hammingWeigth = 0x3 OR 0x7 OR 0xB OR 0xD OR 0xE OR 0xF //Means slow
-    Store the repective timing trace in slow array
-  end of sample loop
-  Calculate average of fast traces
-  Calculate average of slow traces
-  Obtain the difference of both averages
- end of guess subkey loop
- Get the maximum difference of the previous loop //This gets the best correlation for that SBOX
-End of SBox
+|for each SBOX in 8 SBOXes
+|  |for each guess of the subkey in 64 guesses
+|  |  |for each ciphertext with its respective time trace in upto 100,000 samples
+|  |  |  Compute to obtain Rx
+|  |  |  Apply masks & shifts to obtain the 6 bits of the targeted SBOX
+|  |  |  XOR the 6 bits of Rx with the guessed key
+|  |  |  Compute the specific SBOX to the XOR result
+|  |  |  Apply hammingWeight to the SBOX output
+|  |  |  if result hammingWeight = 0x0 OR 0x1 OR 0x2 OR 0x4 OR 0x8 //Means fast
+|  |  |    Store the repective timing trace in fast array
+|  |  |  else if result hammingWeigth = 0x3 OR 0x7 OR 0xB OR 0xD OR 0xE OR 0xF //Means slow
+|  |  |    Store the repective timing trace in slow array
+|  |  |end of sample loop
+|  |  Calculate average of fast traces
+|  |  Calculate average of slow traces
+|  |  Obtain the difference of both averages
+|  |end of guess subkey loop
+|  Get the maximum difference of the previous loop //This gets the best correlation for that SBOX
+|end of SBox
 print the best correlation for each SBOX
 ```
 

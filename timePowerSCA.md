@@ -33,13 +33,40 @@ The professor provided us his APIs:
 More provided resources: the messages with their respective ciphertext and trace (either time or power).
 
 ## Side Channel Analysis with Timing against DES.
-The permutation function is vulnerable to timing attacks, it was created on purpose as part of the laboratory. Some condition statements were added, and this makes the timing trace changes based on permutation function's input.
+The permutation function is vulnerable to timing attacks, it was created on purpose as part of the laboratory. Some condition statements were added, and this makes the timing trace changes based on permutation function's input. By the way, the permutation block will receive the output of the SBOXes concatenated. By looking at the implementetion of this permutation function (next code), it is noticeable that there is if condition when the value is one, it processes more code. Meaning that it will take more time than if it were a zero. Then, the more ones it contains, the more time it must take. In addition, this vulnerability implemented near where subkey is computed, makes time to be correlated with ones and zeroes of the subkey and the expanded Rx. Therfore, the subkey can be leaked.
+```c
+// Permutation table. Input bit #16 is output bit #1 and
+// input bit #25 is output  bit #32.
+p_table = {16,  7, 20, 21,
+           29, 12, 28, 17,
+            1, 15, 23, 26,
+            5, 18, 31, 10,
+            2,  8, 24, 14,
+           32, 27,  3,  9,
+           19, 13, 30,  6,
+           22, 11,  4, 25};
 
-In order to carry out the key extraction, we can analyze all the available data. So, we have the plaintext (not needed for now), ciphertext and time trace, the DES architecture with their fixed tables are public information. Based on this specific DES architecture nature, it is allowed to reconstruct the values from the previous round, consider the next image.
+p_permutation(val) {
+  res = 0;                    // Initialize the 32 bits output result to all zeros
+  for i in 1 to 32 {          // For all input bits #i (32 of them)
+    if get_bit(i, val) == 1   // If input bit #i is set    <------- THIS IS THE FLAW
+      for j in 1 to 32        // For all 32 output bits #j (32 of them)
+        if p_table[j] == i    // If output bits #j is input bit #i
+          k = j;              // Remember output bit index
+        endif
+      endfor                  // output bit #k corresponds to input bit #i
+      set_bit(k, res);        // Set bit #k of result
+    endif
+  endfor
+  return res;                 // Return result
+}
+```
+
+In order to carry out the key extraction, we can analyze all the available data. So far, we have the plaintext (not needed for now), ciphertext and time trace, the DES architecture with their fixed tables are public information. Based on this specific DES architecture nature, it is allowed to reconstruct the values from the previous round, consider the next image.
 
 ![DES reverse analysis](./images/reverseDES.png)
 
-
+The analysis is backwards as the ciphertext (blue) is known, the final permutation is public, so this operation is applied and the result (in 64 bits) will be divided in two and assign to R16 and L16 (pink). By DES architecture, it is known that L16 is R15, and R15 is one input of the Feistel function. The another input is our target subkey of the last round (red). It is time to check inside Feistel function, Rx is expanded to 48 bits (expansion logic is also public), whose result is XORed with the last round subkey. Did you notice? Everything is known by us except the subkey. We can start to 
 
 
 ## Side Channel Analysis with Power against DES.

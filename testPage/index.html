@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executer hidden dangerous leaked knowledge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header-container">
+      <img src="resources/exec_logo.png" alt="executer logo" class="logo">
+      <div class="main-title">The dark hidden shadow stack breach of executer-64bit</div>
+    </header>
+
+    <main>
+      <p class="slogan">Once inside this stack, interesting knwoledge can be dumped...</p>
+      <p class="status-text">Stack is still growing. Let it grow to leak more knowledge</p>
+      
+      <!-- Zone interactive de terminal -->
+       <div class="terminal-bar">
+        <span id="current-date" class="blinking-date"></span>
+        <span class="prompt-symbol">&gt;</span>
+        <span class="fixed-text">root: hexdump </span>
+        <span id="hovered-topic" class="dynamic-text"></span>
+      </div>
+
+      <div class="table-container">
+        <div class="table-header">
+          <span>Memory Address</span>
+          <span>Topic</span>
+        </div>
+        <div class="table-row">
+          <div><span class="address-cell">0xFFFE4000</span></div>
+          <div><a href="stack/imageDetection.html" class="topic-link">Robust AI-Generated Image Detection Algorithm</a></div>
+        </div>
+        <div class="table-row">
+          <div><span class="address-cell">0xFFFE5000</span></div>
+          <div><a href="stack/sca.html" class="topic-link">Timing Side Channel Analsys</a></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Section Ciphertext -->
+    <div class="crypto-container">
+      <div class="terminal-bar">
+        <span class="prompt-symbol">&gt;</span>
+        <span class="fixed-text">root: cat /etc/identity.enc</span>
+      </div>
+
+      <button id="btn-show-cipher">Reveal identity of executer-64bit</button>
+
+      <div id="cipher-display" class="cipher-output hidden">
+        <span class="cipher-label">[AES-256-CBC Ciphertext]</span>
+        <p id="ciphertext-content"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

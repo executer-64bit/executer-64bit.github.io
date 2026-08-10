@@ -1,0 +1,114 @@
+[root@ds] /media/sdcard/read_write_hardware_test                                                                                                                                              
+AXI Slave Register test                                                                                                                                                                       
+[Initial read] Reg 0x00 | value: 0x00000000                                                                                                                                                   
+[Initial read] Reg 0x04 | value: 0x00000000                                                                                                                                                   
+[Initial read] Reg 0x08 | value: 0x00000000                                                                                                                                                   
+[Initial read] Reg 0x0C | value: 0x00000000                                                                                                                                                   
+[Initial read] Reg 0x10 | value: 0x00000000                                                                                                                                                   
+[Initial read] Reg 0x14 | value: 0x00000000                                                                                                                                                   
+[Initial read] Reg 0x18 | value: 0x00000000                                                                                                                                                   
+[Initial read] Reg 0x1C | value: 0x00000000                                                                                                                                                   
+[Initial read] Reg 0x20 | value: 0x00000000                                                                                                                                                   
+[Initial read] Reg 0x24 | value: 0x00000000                                                                                                                                                   
+[Initial read] Reg 0x28 | value: 0x00000000                                                                                                                                                   
+[Initial read] Reg 0x2C | value: 0x00000000                                                                                                                                                   
+[Initial read] Reg 0x30 | value: 0x00000000                                                                                                                                                   
+[Initial read] Reg 0x34 | value: 0x00000000
+[Initial read] Reg 0x38 | value: 0x00000000
+[Initial read] Reg 0x3C | value: 0x00000000
+[Initial read] Reg 0x40 | value: 0x00000000
+[Initial read] Reg 0x44 | value: 0x00000000
+[Initial read] Reg 0x48 | value: 0x00000000
+[Initial read] Reg 0x4C | value: 0x00000000
+[Initial read] Reg 0x50 | value: 0x00000000
+[Initial read] Reg 0x54 | value: 0x00000000
+[Initial read] Reg 0x58 | value: 0x00000000
+[Initial read] Reg 0x5C | value: 0x00000000
+[Initial read] Reg 0x60 | value: 0x00000000
+[Initial read] Reg 0x64 | value: 0x00000000
+[Initial read] Reg 0x68 | value: 0x00000000
+[Initial read] Reg 0x6C | value: 0x00000000
+[Initial read] Reg 0x70 | value: 0x00000000
+[Initial read] Reg 0x74 | value: 0x00000000
+[Initial read] Reg 0x78 | value: 0x00000000
+[Initial read] Reg 0x7C | value: 0x00000000
+[Initial read] Reg 0x80 | value: 0x00000000
+[Initial read] Reg 0x84 | value: 0x00000000
+[Initial read] Reg 0x88 | value: 0x00000000
+[Initial read] Reg 0x8C | value: 0x00000000
+///////////////////////////////////[Write] Reg 0x00 | value: 0xCAFECAFE
+[Write] Reg 0x04 | value: 0xDEADBEEF
+[Write] Reg 0x08 | value: 0xCAFECAFE
+[Write] Reg 0x0C | value: 0xDEADBEEF
+[Write] Reg 0x10 | value: 0xCAFECAFE
+[Write] Reg 0x14 | value: 0xDEADBEEF
+[Write] Reg 0x18 | value: 0xCAFECAFE
+[Write] Reg 0x1C | value: 0xDEADBEEF
+[Write] Reg 0x20 | value: 0xCAFECAFE
+[Write] Reg 0x24 | value: 0xDEADBEEF
+[Write] Reg 0x28 | value: 0xCAFECAFE
+[Write] Reg 0x2C | value: 0xDEADBEEF
+[Write] Reg 0x30 | value: 0xCAFECAFE
+[Write] Reg 0x34 | value: 0xDEADBEEF
+[Write] Reg 0x38 | value: 0xCAFECAFE
+[Write] Reg 0x3C | value: 0xDEADBEEF
+[Write] Reg 0x40 | value: 0xCAFECAFE
+[Write] Reg 0x44 | value: 0xDEADBEEF
+[Write] Reg 0x48 | value: 0xCAFECAFE
+[Write] Reg 0x4C | value: 0xDEADBEEF
+[Write] Reg 0x50 | value: 0xCAFECAFE
+[Write] Reg 0x54 | value: 0xDEADBEEF
+[Write] Reg 0x58 | value: 0xCAFECAFE
+[Write] Reg 0x5C | value: 0xDEADBEEF
+[Write] Reg 0x60 | value: 0xCAFECAFE
+[Write] Reg 0x64 | value: 0xDEADBEEF
+[Write] Reg 0x68 | value: 0xCAFECAFE
+[Write] Reg 0x6C | value: 0xDEADBEEF
+[Write] Reg 0x70 | value: 0xCAFECAFE
+[Write] Reg 0x74 | value: 0xDEADBEEF
+[Write] Reg 0x78 | value: 0xCAFECAFE
+[Write] Reg 0x7C | value: 0xDEADBEEF
+[Write] Reg 0x80 | value: 0xCAFECAFE
+[Write] Reg 0x84 | value: 0xDEADBEEF
+[Write] Reg 0x88 | value: 0xCAFECAFE
+[Write] Reg 0x8C | value: 0xDEADBEEF
+///////////////////////////////////[Read] Reg 0x00 | value: 0x4AFECAFF
+[FAIL] Reg 0x00 | Expected: 0xCAFECAFE | Got: 0x4AFECAFF
+[Read] Reg 0x04 | value: 0xDEADBEEF
+[Read] Reg 0x08 | value: 0xCAFECAFE
+[Read] Reg 0x0C | value: 0xDEADBEEF
+[Read] Reg 0x10 | value: 0xCAFECAFE
+[Read] Reg 0x14 | value: 0xDEADBEEF
+[Read] Reg 0x18 | value: 0xCAFECAFE
+[Read] Reg 0x1C | value: 0xDEADBEEF
+[Read] Reg 0x20 | value: 0xCAFECAFE
+[Read] Reg 0x24 | value: 0xDEADBEEF
+[Read] Reg 0x28 | value: 0xCAFECAFE
+[Read] Reg 0x2C | value: 0xDEADBEEF
+[Read] Reg 0x30 | value: 0xCAFECAFE
+[Read] Reg 0x34 | value: 0xDEADBEEF
+[Read] Reg 0x38 | value: 0xCAFECAFE
+[Read] Reg 0x3C | value: 0xDEADBEEF
+[Read] Reg 0x40 | value: 0xCAFECAFE
+[Read] Reg 0x44 | value: 0xDEADBEEF
+[Read] Reg 0x48 | value: 0xCAFECAFE
+[Read] Reg 0x4C | value: 0x00000000
+[FAIL] Reg 0x4C | Expected: 0xDEADBEEF | Got: 0x00000000
+[Read] Reg 0x50 | value: 0xCAFECAFE
+[Read] Reg 0x54 | value: 0xDEADBEEF
+[Read] Reg 0x58 | value: 0xCAFECAFE
+[Read] Reg 0x5C | value: 0xDEADBEEF
+[Read] Reg 0x60 | value: 0xCAFECAFE
+[Read] Reg 0x64 | value: 0xDEADBEEF
+[Read] Reg 0x68 | value: 0xCAFECAFE
+[Read] Reg 0x6C | value: 0xDEADBEEF
+[Read] Reg 0x70 | value: 0xCAFECAFE
+[Read] Reg 0x74 | value: 0xDEADBEEF
+[Read] Reg 0x78 | value: 0xCAFECAFE
+[Read] Reg 0x7C | value: 0xDEADBEEF
+[Read] Reg 0x80 | value: 0xCAFECAFE
+[Read] Reg 0x84 | value: 0xDEADBEEF
+[Read] Reg 0x88 | value: 0xCAFECAFE
+[Read] Reg 0x8C | value: 0xDEADBEEF
+//// The registers were cleared ////////////////////2 faults
+

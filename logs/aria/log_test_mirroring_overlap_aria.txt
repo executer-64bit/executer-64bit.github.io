@@ -1,0 +1,53 @@
+[root@ds] /media/sdcard/read_write_hardware_test_overlap_mirroring                                                                                                                            
+                                                                                                                                                                                              
+=== Starting Advanced Hardware Diagnostic ===                                                                                                                                                 
+Mirror Test                                                                                                                                                                                   
+8<--- cut here ---                                                                                                                                                                            
+Unable to handle kernel paging request at virtual address e09a2000 when read                                                                                                                  
+[e09a2000] *pgd=00c0c811, *pte=00000000, *ppte=00000000                                                                                                                                       
+Internal error: Oops - BUG: 7 [#1] PREEMPT SMP ARM                                                                                                                                            
+Modules linked in: aria_driver(O)                                                                                                                                                             
+CPU: 0 PID: 105 Comm: read_write_hard Tainted: G           O       6.6.0-xilinx #1                                                                                                            
+Hardware name: Xilinx Zynq Platform                                                                                                                                                           
+PC is at aria_ioctl+0x64/0x124 [aria_driver]                                                                                                                                                  
+LR is at 0x0                                                                                                                                                                                  
+pc : [<bf0002d0>]    lr : [<00000000>]    psr: 600f0013                                                                                                                                       
+sp : e0a15f00  ip : 00000018  fp : 00000003                                                                                                                                                   
+r10: c159b3c0  r9 : c0daca40  r8 : c0e9f740                                                                                                                                                   
+r7 : c0086106  r6 : bebdabe8  r5 : c0daca40  r4 : bebdabe8                                                                                                                                    
+r3 : e09a2000  r2 : 00001000  r1 : bebdabf0  r0 : 00000000                                                                                                                                    
+Flags: nZCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment none                                                                                                                             
+Control: 18c5387d  Table: 015c404a  DAC: 00000051                                                                                                                                             
+Register r0 information: NULL pointer
+Register r1 information: non-paged memory
+Register r2 information: non-paged memory
+Register r3 information: 0-page vmalloc region starting at 0xe09a1000 allocated at aria_probe+0x88/0x190 [aria_driver]
+Register r4 information: non-paged memory
+Register r5 information: slab task_struct start c0daca40 pointer offset 0 size 2112
+Register r6 information: non-paged memory
+Register r7 information: non-slab/vmalloc memory
+Register r8 information: slab shmem_inode_cache start c0e9f6e0 pointer offset 96 size 480
+Register r9 information: slab task_struct start c0daca40 pointer offset 0 size 2112
+Register r10 information: slab kmalloc-192 start c159b3c0 pointer offset 0 size 192
+Register r11 information: non-paged memory
+Register r12 information: non-paged memory
+Process read_write_hard (pid: 105, stack limit = 0x(ptrval))
+Stack: (0xe0a15f00 to 0xe0a16000)
+5f00: 00000000 00001000 00000000 a060c7e6 01000005 b6fb8e58 c159b3c0 c02075ac
+5f20: b6fb8e58 c0207ee0 00000001 00000000 c1609a80 00000000 00000000 00000000
+5f40: 00000000 00000000 00000000 00004004 00000000 00000000 e0a15f54 a060c7e6
+5f60: c1609a80 00496190 c1609a80 00000000 c1609a80 00000000 00000000 a060c7e6
+5f80: 000001ff b6fb8e58 00000001 00494f0c 00000036 c01002c4 c0daca40 00000036
+5fa0: bebdabf4 c0100060 b6fb8e58 00000001 00000003 c0086106 bebdabe8 bebdabd8
+5fc0: b6fb8e58 00000001 00494f0c 00000036 00493994 b6fe3cd8 00000000 bebdabf4
+5fe0: 00000036 bebdabc0 b6f5e475 b6ed85a6 800f0030 00000003 00000000 00000000
+ aria_ioctl [aria_driver] from vfs_ioctl+0x20/0x38
+ vfs_ioctl from sys_ioctl+0xc4/0x92c
+ sys_ioctl from ret_fast_syscall+0x0/0x54
+Exception stack(0xe0a15fa8 to 0xe0a15ff0)
+5fa0:                   b6fb8e58 00000001 00000003 c0086106 bebdabe8 bebdabd8
+5fc0: b6fb8e58 00000001 00494f0c 00000036 00493994 b6fe3cd8 00000000 bebdabf4
+5fe0: 00000036 bebdabc0 b6f5e475 b6ed85a6
+Code: e59f30c0 e59d2004 e5933044 e0833002 (e5933000) 
+---[ end trace 0000000000000000 ]---
+Segmentation fault

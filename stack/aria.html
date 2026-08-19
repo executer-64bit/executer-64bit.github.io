@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Executer - ARIA Crypto System Development</title>
   <link rel="stylesheet" href="../style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="manifest" href="../site.webmanifest">
 </head>
 
 <body>
@@ -42,7 +46,7 @@
             In the previous paragraph it was understood that hardware accelerators offer higher speed, but as it is a completly piece of hardware separated from our general-purpose processor (usually our laptops), it is required to establish a communication between them. So this is where software is considered. It is not only useful for controlling the accelerator from general-purpose processor (host) through a piece of code and its specific API, but it helps to the host processor to consider that external device in its device list and create the required resources (such as assigning memory, creating routines, etc) so user can communicate with their accelerator.
         </p>
         <p>
-            The purpose of this course's project is to develop a hardware accelerator and integrate it to the computer through software. We were assigned crypto systems, in my case ARIA.
+            The purpose of this course's project is to develop a hardware accelerator and integrate it to the computer through software. We were assigned crypto systems, in my case <a a href="../docs/aria.pdf" target="_blank" rel="noopener noreferrer">ARIA</a>.
         </p>
         <div class="topic-section">
             ARIA system at high level.
@@ -165,7 +169,7 @@
             Substitution layer.
         </p>
         <p>
-            The ARIA substitution layer is implemented through the S-box lookup tables and helper functions. The design is purely combinational and does not contain registers or a clocked process.The 128-bit state is treated as sixteen 8-bit bytes, they were defined as customized arrays of w8_array_t whose each element can have a value from 0 to 255. The names of the constant lookup tables (also known as ROMs) describe themselves the type of SBOX table. Their hexadecimal values were copied directly from the specification document.
+            The ARIA substitution layer is implemented through the S-box lookup tables and helper functions. The design is purely combinational and does not contain registers or a clocked process.The 128-bit state is treated as sixteen 8-bit bytes, they were defined as customized arrays of w8_array_t whose each element can have a value from 0 to 255. The names of the constant lookup tables (also known as ROMs) describe themselves the type of SBOX table. Their hexadecimal values were copied directly from the specification <a a href="../docs/aria.pdf" target="_blank" rel="noopener noreferrer">document</a>.
         </p>
         <p>
             For Type 1 substitution, the repeated byte pattern is: S1, S2, S1^-1, S2^-1
@@ -714,14 +718,14 @@
             <img src="../images/aria/simulation_subkey_gen_aria.png" alt="Simulation result from key extension" class="article-big-big-img">
             <p>
                 Even though it is possible to select the key's size through key_len_sel, this design only supports the 128 bit one.
-                The example shown in the ARIA specification was utilized to compared against my results, and it is visible that both encryption and decryption sub keys were calculated correctly.
+                The example shown in the <a href="../docs/aria.pdf" target="_blank" rel="noopener noreferrer">ARIA specification page 13</a> was utilized to compared against my results, and it is visible that both encryption and decryption sub keys were calculated correctly.
             </p>
             <p class="below-sub-section">
                 ARIA crypto system.
             </p>
             <img src="../images/aria/simulation_aria.png" alt="Simulation result from ARIA crypto system" class="article-over-big-img">
             <p>
-                Same for this simulation, in the ARIA specification there is an example for 128-bit and that was considered as reference. It correctly encrypts and decrypts as the message is recovered.
+                Same for this simulation, in the ARIA specification in page 19 there is an example for 128-bit and that was considered as reference. It correctly encrypts and decrypts as the message is recovered.
             </p>
         </p>
 

@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Executer - The Underrated Format String Attack</title>
   <link rel="stylesheet" href="../style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="manifest" href="../site.webmanifest">
 </head>
 
 <body>
@@ -470,7 +474,7 @@ $9 = 0x7fffffffd5d8
                 Option 1 to leak the level privilege with %9$p which we should see a 0x2 because that is the default level of the worker.
             </li>
             <li>
-                Option 1 but in this case is to write by using the slot 10 with char_counter%10$n. Like x10\x10\x10%10$n to write a 3 in slot 10.
+                Option 1 but in this case is to write by using the slot 10 with char_counter%10$n. Like x10\x10\x10%10$n to write a 3 in the address specified in slot 10.
             </li>
             <li>
                 Option 1 to see the new value of privilege level with %9$p.
